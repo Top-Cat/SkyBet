@@ -12,7 +12,11 @@ abstract class basecontroller {
 	public abstract function PreRender();
 
 	public function Render() {
-		$this->showView(get_class($this), $this->vars);
+		if (isset($_GET['ajax'])) {
+			$this->showView("ajax", $this->vars);
+		} else {
+			$this->showView(get_class($this), $this->vars);
+		}
 	}
 
 	public function showView($viewName, $vars = []) {

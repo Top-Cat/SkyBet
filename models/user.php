@@ -1,6 +1,6 @@
 <?php
 
-class user {
+class user implements JsonSerializable {
 
 	private static function getVal($arr, $index) {
 		return isset($arr[$index]) ? htmlspecialchars($arr[$index]) : "";
@@ -41,7 +41,15 @@ class user {
 	}
 
 	public function toArray() {
-		return array('firstname' => $this->firstName, 'surname' => $this->lastName);
+		return array(
+			'firstname' => $this->firstName,
+			'surname' => $this->lastName,
+			'jobtitle' => $this->jobTitle
+		);
+	}
+
+	public function jsonSerialize() {
+		return $this->toArray();
 	}
 
 }

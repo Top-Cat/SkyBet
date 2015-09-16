@@ -12,5 +12,8 @@ foreach ($vars['people'] as $person) {
 }
 ?>
 </table>
+<input type="submit" value="Load" />
 <input type="submit" value="OK" />
 </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/ajax.js"></script>
